@@ -12,7 +12,7 @@
 1. Install any requirements:
 ```python -m pip install -r requirements.txt```<br>
 
-1. Run tests from root like:
+1. Run the scripts from root like:
 ``` python -m 2023.01.p1 ``` <br>
 
 
