@@ -1,3 +1,6 @@
+import os
+import inspect
+
 DIGITS_TEXT_MAPPING = {"one": 1,
                        "two": 2,
                        "three": 3,
@@ -8,6 +11,13 @@ DIGITS_TEXT_MAPPING = {"one": 1,
                        "eight": 8,
                        "nine": 9}
 
+
+def read_input_to_list_of_strings():
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+    dir_name = os.path.dirname(os.path.realpath(module.__file__))
+    with open(dir_name + "/input.txt") as f:
+        return f.readlines()
 
 def replace_text_with_digit_and_translate_text_to_digits(line: str):
     new_line = ""

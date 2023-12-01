@@ -1,20 +1,9 @@
-from ACutils.utils import replace_text_with_digit_and_translate_text_to_digits
-import os
-
-
-
-
-def read_from_file():
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    lines = []
-    with open(dir_path + "/input.txt") as f:
-        lines = [line for line in f]
-    return lines
+from ACutils.utils import replace_text_with_digit_and_translate_text_to_digits, read_input_to_list_of_strings
 
 
 def main():
     total = 0
-    lines = read_from_file()
+    lines = read_input_to_list_of_strings()
     for line in lines:
         new_line = replace_text_with_digit_and_translate_text_to_digits(line)
         if len(new_line) == 0:
@@ -22,10 +11,7 @@ def main():
         elif len(new_line) == 1:
             total += int(new_line + new_line)
         else:
-            first_number = new_line[0]
-            last_number = new_line[-1]
-            tmp = first_number + last_number
-            total += int(tmp)
+            total += int(new_line[0] + new_line[-1])
     print("Result: {}".format(total))
 
 
