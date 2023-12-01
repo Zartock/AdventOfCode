@@ -3,7 +3,7 @@ from ACutils.utils import replace_text_with_digit_and_translate_text_to_digits, 
 
 def main():
     total = 0
-    lines = read_input_to_list_of_strings()
+    lines = read_input_to_list_of_strings("input.txt")
     for line in lines:
         new_line = replace_text_with_digit_and_translate_text_to_digits(line)
         if len(new_line) == 0:

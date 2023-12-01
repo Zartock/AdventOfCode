@@ -13,7 +13,7 @@
 ```python -m pip install -r requirements.txt```<br>
 
 1. Run tests from root like:
-``` python -m 2023.01.Part1.main ``` <br>
+``` python -m 2023.01.p1 ``` <br>
 
 
 
