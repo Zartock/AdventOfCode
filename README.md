@@ -14,3 +14,10 @@
 
 1. Run tests from root like:
 ``` python -m 2023.01.Part1.main ``` <br>
+
+
+
+## Tests
+
+There are or should be pytests for all util functions
+They are run by simply running ```pytest``` **from the ```ACutils/tests``` directory**
