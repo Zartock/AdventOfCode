@@ -1,4 +1,4 @@
-from ACutils.utils import read_input_to_list_of_strings, replace_text_with_digit
+from ACutils.utils import read_input_to_list_of_strings, extract_digits_from_string
 
 from typing import List
 
@@ -14,7 +14,7 @@ def get_power(sets: List[str]) -> int:
         number_colors = set.split(',')
         for cube_ammount in number_colors:
             tmp = cube_ammount.strip()
-            number = int(replace_text_with_digit(tmp))
+            number = int(extract_digits_from_string(tmp))
             if "blue" in tmp:
                 min_blue = max(min_blue, number)
             if "red" in tmp:

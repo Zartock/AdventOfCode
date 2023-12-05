@@ -1,4 +1,4 @@
-from ACutils.utils import read_input_to_list_of_strings, replace_text_with_digit
+from ACutils.utils import read_input_to_list_of_strings, extract_digits_from_string
 
 from typing import List
 
@@ -11,7 +11,7 @@ def is_set_possible(sets: List[str]):
         number_colors = set.split(',')
         for cube_ammount in number_colors:
             tmp = cube_ammount.strip()
-            number = replace_text_with_digit(tmp)
+            number = extract_digits_from_string(tmp)
             if "blue" in tmp:
                 if int(number) > MAX_BLUE:
                     return False
