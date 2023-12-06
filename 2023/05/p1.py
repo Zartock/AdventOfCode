@@ -43,24 +43,25 @@ def main():
         new_seeds = []
 
         for seed in seeds:
-          if not check_number_in_range(seed, map_list):
-             print(seed, "stayed", seed)
-             new_seeds.append(seed)
-             continue
+            if not check_number_in_range(seed, map_list):
+                print(f"{seed} stayed {seed}")
+                new_seeds.append(seed)
+                continue
 
-          for mapping in map_list:
-            if seed not in range(mapping[1], mapping[1] + mapping[2]):
-               continue
-            else:
-              diff = seed - mapping[1]
-              print(seed, " became ", mapping[0] + diff)
-              new_seeds.append(mapping[0] + diff)
-              break
+            for mapping in map_list:
+                if seed not in range(mapping[1], mapping[1] + mapping[2]):
+                    continue
+                else:
+                    diff = seed - mapping[1]
+                    new_seed = mapping[0] + diff
+                    print(f"{seed} became {new_seed}")
+                    new_seeds.append(new_seed)
+                    break
 
         seeds = new_seeds
 
     print(seeds)
-    print("result: {}".format(min(seeds)))
+    print(f"result: {min(seeds)}")
 
 
 main()
