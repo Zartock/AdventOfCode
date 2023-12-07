@@ -10,10 +10,6 @@ def get_formatted_input(input: List[str]):
         result.append((tmp[0], tmp[1]))
     return result
 
-def sort_cards(cards: str) -> str:
-    card_order = "AKQJT98765432"
-    return "".join(sorted(cards, key=lambda card: card_order.index(card), reverse=True))
-
 
 def sort_tuples(lst):
     def key_func(tup):
@@ -38,19 +34,19 @@ def determine_poker_hand(hand: str) -> str:
     cards.sort()
     same_cards = sorted([cards.count(c) for c in set(cards)], reverse=True)
     if same_cards == [5]:
-        return 7
+        return 7  # Five of a kind
     elif same_cards == [4, 1]:
-        return 6
+        return 6 # Four of a kind
     elif same_cards == [3, 2]:
-        return 5
+        return 5 # Full house
     elif same_cards == [3, 1, 1]:
-        return 4
+        return 4 # Three of a kind
     elif same_cards == [2, 2, 1]:
-        return 3
+        return 3 # Two pairs
     elif same_cards == [2, 1, 1, 1]:
-        return 2
+        return 2 # One pair
     else:
-        return 1
+        return 1 # High card
 
 def main():
     input = read_input_to_list_of_strings("input.txt")
