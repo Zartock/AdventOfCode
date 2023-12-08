@@ -31,7 +31,7 @@ def main():
     formatted_input = get_formatted_input(input)
 
     nodes = get_all_start_nodes(formatted_input)
-    steps = []
+    steps: List[int] = []
 
     for node in nodes:
         curr_node = node

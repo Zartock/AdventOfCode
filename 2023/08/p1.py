@@ -1,8 +1,8 @@
 from ACutils.utils import read_input_to_list_of_strings
 
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
-def get_formatted_input(input: List[str]):
+def get_formatted_input(input: List[str]) -> Dict[str, Tuple[str, str]]:
     result = {}
     for i in range(2, len(input)):
         tmp = input[i].split("=")
@@ -11,7 +11,7 @@ def get_formatted_input(input: List[str]):
     return result
 
 
-def get_index_for_instruction(instruction):
+def get_index_for_instruction(instruction: str) -> int:
     if instruction == 'L':
         return 0
     else:
@@ -21,7 +21,6 @@ def main():
     input = read_input_to_list_of_strings("input.txt")
     instructions = input[0]
     formatted_input = get_formatted_input(input)
-    print(formatted_input)
 
     curr_node = "AAA"
     steps = 0
