@@ -82,9 +82,11 @@ def main():
             if [x, y] in visited:
                 continue
             if p.contains_point((x, y)):
+                #print(input[y][x])
                 count += 1
 
-    print(count - 1) # 1 Point in the poly does not get caught in continue check
+    print(len(visited), len(p))
+    print(count - 1) # start is not concidered part of the poly, so subtract 1
 
 
 
