@@ -21,6 +21,14 @@ def read_input_to_list_of_strings(file_name: str) -> List[str]:
         return f.read().splitlines()
 
 
+def read_input_to_grid_2d(file_name: str):
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+    dir_name = os.path.dirname(os.path.realpath(module.__file__))
+    with open("{directory_name}/{name_of_file}".format(directory_name=dir_name, name_of_file=file_name)) as f:
+        return [list(line.strip()) for line in f.readlines()] 
+
+
 def extract_digits_from_string_and_translate_text_to_digits(line: str) -> str:
     new_line = ""
     for i in range(0, len(line)):
