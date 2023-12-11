@@ -19,6 +19,13 @@ def read_input_to_list_of_strings(file_name: str) -> List[str]:
     dir_name = os.path.dirname(os.path.realpath(module.__file__))
     with open("{directory_name}/{name_of_file}".format(directory_name=dir_name, name_of_file=file_name)) as f:
         return f.read().splitlines()
+    
+def read_input_to_string(file_name: str) -> str: 
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+    dir_name = os.path.dirname(os.path.realpath(module.__file__))
+    with open("{directory_name}/{name_of_file}".format(directory_name=dir_name, name_of_file=file_name)) as f:
+        return f.read()
 
 
 def read_input_to_grid_2d(file_name: str):
