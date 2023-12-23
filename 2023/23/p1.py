@@ -1,4 +1,4 @@
-from ACutils.utils import read_input_to_list_of_strings, Cardinal, CARDINALS
+from ACutils.utils import read_input_to_list_of_strings, Cardinal, CARDINALS, profiler
 
 from collections.abc import Iterator
 
@@ -72,6 +72,7 @@ def iter_hike_lengths(graph: dict[Pos, list[tuple[Pos, int]]], goal: Pos) -> Ite
                 stack.append((new, length + edge_length, visited | {new}))
 
 
+@profiler
 def main():
     trail_map = read_input_to_list_of_strings("input.txt")
     goal = len(trail_map[0]) - 2, len(trail_map) - 1

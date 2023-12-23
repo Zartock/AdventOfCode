@@ -2,6 +2,8 @@ import os
 import inspect
 from typing import List, Tuple
 from enum import Enum
+from time import perf_counter
+
 
 DIGITS_TEXT_MAPPING = {"one": 1,
                        "two": 2,
@@ -21,6 +23,16 @@ class Cardinal(Enum):
     SOUTH = (0, 1) 
 
 CARDINALS = [x.value for x in Cardinal]
+
+
+def profiler(method):
+    def wrapper_method(*arg, **kw):
+        t = perf_counter()
+        ret = method(*arg, **kw)
+        print("Method " + method.__name__ + " took : " + "{:2.5f}".format(perf_counter() - t) + " sec")
+        return ret
+
+    return wrapper_method
 
 
 def read_input_to_list_of_strings(file_name: str) -> List[str]: 
