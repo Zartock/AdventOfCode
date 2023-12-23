@@ -16,11 +16,11 @@ DIGITS_TEXT_MAPPING = {"one": 1,
                        "nine": 9}
 
 class Cardinal(Enum):
-    __order__ = 'WEST EAST NORTH SOUTH'
-    WEST = (-1, 0)
-    EAST = (1, 0)
+    __order__ = 'NORTH EAST SOUTH SOUTH'
     NORTH = (0, -1)
+    EAST = (1, 0)
     SOUTH = (0, 1) 
+    WEST = (-1, 0)
 
 CARDINALS = [x.value for x in Cardinal]
 
