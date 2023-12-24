@@ -16,13 +16,72 @@ DIGITS_TEXT_MAPPING = {"one": 1,
                        "nine": 9}
 
 class Cardinal(Enum):
-    __order__ = 'NORTH EAST SOUTH SOUTH'
+    __order__ = 'NORTH EAST SOUTH WEST'
     NORTH = (0, -1)
     EAST = (1, 0)
     SOUTH = (0, 1) 
     WEST = (-1, 0)
 
 CARDINALS = [x.value for x in Cardinal]
+
+
+class Pos3D():
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __str__(self) -> str:
+        return "({}, {}, {})".format(self.x, self.y, self.z)
+    
+    def __repr__(self) -> str:
+        return str(self)
+    
+    def __add__(self, other):
+        return Pos3D(self.x + other.x, self.y + other.y, self.z + other.z)
+    
+    def __sub__(self, other):
+        return Pos3D(self.x - other.x, self.y - other.y, self.z - other.z)
+    
+    def __truediv__(self, other):
+        return Pos3D(self.x / other.x, self.y / other.y, self.z / other.z)
+    
+    def __mul__(self, other):
+        return Pos3D(self.x * other.x, self.y * other.y, self.z * other.z)
+    
+class Pos2D():
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self) -> str:
+        return "({}, {})".format(self.x, self.y)
+    
+    def __repr__(self) -> str:
+        return str(self)
+    
+    def __add__(self, other):
+        return Pos2D(self.x + other.x, self.y + other.y)
+    
+    def __sub__(self, other):
+        return Pos2D(self.x - other.x, self.y - other.y)
+    
+    def __truediv__(self, other):
+        return Pos2D(self.x / other.x, self.y / other.y)
+    
+    def __mul__(self, other):
+        if isinstance(other, int) or isinstance(other, float):
+            return Pos2D(other * self.x, other * self.y)
+        elif isinstance(other, Pos2D):
+            return Pos2D(self.x * other.x, self.y * other.y)
+        else:
+            return NotImplemented
+    
+    def __rmul__(self, other):
+        return self.__mul__(other)
+    
+    def __eq__(self, other) -> bool:
+        return self.x == other.x and self.y == other.y
 
 
 def profiler(method):
